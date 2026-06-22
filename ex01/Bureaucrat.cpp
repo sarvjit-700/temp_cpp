@@ -32,10 +32,9 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
         << this->getGrade() << "." <<  RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy)
-{
-    *this = copy;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : 
+        _name(copy._name), _grade(copy._grade)
+{}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 {
@@ -78,12 +77,12 @@ void  Bureaucrat::signForm(Form& f)
     try
     {
         f.beSigned(*this);
-        std::cout << this->_name << " signed " << f.getFormName() << std::endl;
+        std::cout << YELLOW << this->_name << " signed " << f.getFormName() << RESET << std::endl;
     }
     catch(const std::exception& e)
     {
-        std::cout << this->name << " couldn't sign " << f.getFormName() 
-            << " because " << e.what() << std::endl;
+        std::cout << RED<< this->_name << " couldn't sign " << f.getFormName() 
+            << " because -> " << e.what() << RESET << std::endl;
     }
     
 }

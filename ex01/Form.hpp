@@ -15,6 +15,7 @@
 
 #include <exception>
 #include <string>
+#include <iostream>
 #include "Bureaucrat.hpp"
 
 class Form
@@ -26,15 +27,15 @@ class Form
         const unsigned int  _execGrade; //required Exec Grade
     public:
         Form();
-        Form(std::string formName, bool isSigned, unsigned int reqSG, unsigned int reqEG);
+        Form(std::string formName, unsigned int reqSG, unsigned int reqEG);
         Form(const Form& copy);
         Form& operator=(const Form& copy);
         ~Form();
 
-        std::string getFormName() const;
-        bool        getIsSigned();
-        int         getReqSG();
-        int         getReqEG();
+        std::string     getFormName() const;
+        bool            getIsSigned()const;
+        unsigned int    getReqSG()const;
+        unsigned int    getReqEG()const;
 
         class GradeTooHighException : public std::exception
         {
@@ -48,7 +49,7 @@ class Form
                 virtual const char* what() const throw();
         };
 
-        Form    beSigned(Bureaucrat& b);
+        void    beSigned(const Bureaucrat& b);
 
 };
 
