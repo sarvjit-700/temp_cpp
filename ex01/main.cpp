@@ -13,7 +13,7 @@ int main()
         std::cout << testform << std::endl;
         std::cout << "Create Boss with grade 2." << std::endl;
         Bureaucrat boss("Boss", 2);
-        std::cout << "Check grade and Sign form.\n" << std::endl;
+        std::cout << "Check req. sign grade and sign form.\n" << std::endl;
         boss.signForm(testform);
         std::cout << BLUE << testform << RESET << std::endl;
     }
@@ -30,7 +30,7 @@ int main()
     {        
         std::cout << "Create Pleb with grade 149." << std::endl;
         Bureaucrat pleb("Pleb", 149);
-        std::cout << "Check grade and Sign form.\n" << std::endl;
+        std::cout << "Check req. sign grade and sign form.\n" << std::endl;
         pleb.signForm(important_form);
     }
     catch(const std::exception& e)

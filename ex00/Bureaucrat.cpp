@@ -31,9 +31,10 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
         << this->getGrade() << "." <<  RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy)
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : 
+    _name(copy._name), _grade(copy._grade)
 {
-    *this = copy;
+    std::cout << GREEN << "Copy created\n" << RESET << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
@@ -84,6 +85,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
-    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+    os << BLUE << b.getName() << ", bureaucrat grade " 
+        << b.getGrade() << "." << RESET << std::endl;
     return os;
 }
